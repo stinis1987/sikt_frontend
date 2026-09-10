@@ -1,0 +1,14 @@
+name: Build Docker Images
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  generate_docker_image:
+    uses: stinis1987/kubernetes_infrastructure/.github/workflows/docker_publish.yml@main
+    with:
+      IMAGE_NAME: stinis1987/sikt_frontend
+    secrets:
+      PACKAGE_TOKEN: ${{ secrets.PACKAGE_TOKEN }}
